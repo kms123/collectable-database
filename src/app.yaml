@@ -4,5 +4,10 @@ runtime: go
 api_version: go1
 
 handlers:
+  - url: /((?:inline|main|polyfills|styles|vendor)\.bundle\.js)
+    static_files: angular-collectable/dist/\1
+    upload: angular-collectable/dist/.*
+
   - url: /.*
-    script: _go_app
+    static_files: angular-collectable/dist/index.html
+    upload: angular-collectable/dist/index.html
